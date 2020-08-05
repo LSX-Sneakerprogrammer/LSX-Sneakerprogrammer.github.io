@@ -20,34 +20,48 @@
     var CONFIG = {"hostname":"lsx-sneakerprogrammer.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="山东大学威海17级，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 主要学习CV，NLP等机器学习领域，此为个人博客，头像是可爱的宝宝~。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="永缘空的博客">
-<meta property="og:url" content="https://lsx-sneakerprogrammer.github.io/index.html">
+  <meta name="description" content="Introduction to Boolean RetrievalBag-of-Words (BOW)AssumptionA document is a collection of wordse.g.     Doc1: Mary married John   Doc2: John married Mary    These two documents are the same under BoW">
+<meta property="og:type" content="article">
+<meta property="og:title" content="COMP4650(Document Analysis) Ranked Retrieval">
+<meta property="og:url" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/index.html">
 <meta property="og:site_name" content="永缘空的博客">
-<meta property="og:description" content="山东大学威海17级，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 主要学习CV，NLP等机器学习领域，此为个人博客，头像是可爱的宝宝~。">
+<meta property="og:description" content="Introduction to Boolean RetrievalBag-of-Words (BOW)AssumptionA document is a collection of wordse.g.     Doc1: Mary married John   Doc2: John married Mary    These two documents are the same under BoW">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/1.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/2.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/3.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/4.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/5.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/6.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/7.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/8.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/9.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/10.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/11.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/12.png">
+<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/13.png">
+<meta property="article:published_time" content="2020-08-04T03:48:51.000Z">
+<meta property="article:modified_time" content="2020-08-05T08:23:28.107Z">
 <meta property="article:author" content="永缘空">
-<meta property="article:tag" content="机器学习">
-<meta property="article:tag" content="cv">
 <meta property="article:tag" content="nlp">
-<meta property="article:tag" content="pytorch">
+<meta property="article:tag" content="course">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/1.png">
 
-<link rel="canonical" href="https://lsx-sneakerprogrammer.github.io/">
+<link rel="canonical" href="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>永缘空的博客</title>
+  <title>COMP4650(Document Analysis) Ranked Retrieval | 永缘空的博客</title>
   
 
 
@@ -165,9 +179,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -183,10 +198,9 @@
       <meta itemprop="name" content="永缘空的博客">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/" class="post-title-link" itemprop="url">COMP4650(Document Analysis) Ranked Retrieval</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          COMP4650(Document Analysis) Ranked Retrieval
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -215,6 +229,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -246,7 +267,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Introduction-to-Boolean-Retrieval"><a href="#Introduction-to-Boolean-Retrieval" class="headerlink" title="Introduction to Boolean Retrieval"></a>Introduction to Boolean Retrieval</h1><h2 id="Bag-of-Words-BOW"><a href="#Bag-of-Words-BOW" class="headerlink" title="Bag-of-Words (BOW)"></a>Bag-of-Words (BOW)</h2><h3 id="Assumption"><a href="#Assumption" class="headerlink" title="Assumption"></a>Assumption</h3><p>A document is a collection of words<br>e.g.   </p>
+        <h1 id="Introduction-to-Boolean-Retrieval"><a href="#Introduction-to-Boolean-Retrieval" class="headerlink" title="Introduction to Boolean Retrieval"></a>Introduction to Boolean Retrieval</h1><h2 id="Bag-of-Words-BOW"><a href="#Bag-of-Words-BOW" class="headerlink" title="Bag-of-Words (BOW)"></a>Bag-of-Words (BOW)</h2><h3 id="Assumption"><a href="#Assumption" class="headerlink" title="Assumption"></a>Assumption</h3><p>A document is a collection of words<br>e.g.   </p>
 <ul>
 <li>Doc1: Mary married John  </li>
 <li>Doc2: John married Mary   </li>
@@ -351,7 +372,6 @@ We can see in the figure, although the cf is the same for these two terms, there
 <li>Compute the similarity between query and document in the same way  </li>
 </ul>
 
-      
     </div>
 
     
@@ -360,563 +380,44 @@ We can see in the figure, although the cf is the same for these two terms, there
 
     <div>
       
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
     </div>
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/nlp/" rel="tag"># nlp</a>
+              <a href="/tags/course/" rel="tag"># course</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="永缘空">
-      <meta itemprop="description" content="山东大学威海17级，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 主要学习CV，NLP等机器学习领域，此为个人博客，头像是可爱的宝宝~。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="永缘空的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/" class="post-title-link" itemprop="url">COMP4650(Document Analysis) Information Retrieval</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-30 16:30:12" itemprop="dateCreated datePublished" datetime="2020-07-30T16:30:12+08:00">2020-07-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-05 16:23:47" itemprop="dateModified" datetime="2020-08-05T16:23:47+08:00">2020-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.1k</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Introduction-to-Information-Retrieval"><a href="#Introduction-to-Information-Retrieval" class="headerlink" title="Introduction to Information Retrieval"></a>Introduction to Information Retrieval</h1><h2 id="What-is-information-retrieval"><a href="#What-is-information-retrieval" class="headerlink" title="What is information retrieval"></a>What is information retrieval</h2><h3 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h3><ul>
-<li><strong>Google Defination</strong><br>Information retrieval is the science of searching for information in a document, searching for documents themselves, and also searching for the metadata that describes data, and for databases of texts, images or sounds.  </li>
-</ul>
-<ul>
-<li><strong>Textbook Defination</strong><br><a href="https://nlp.stanford.edu/IR-book/pdf/01bool.pdf" target="_blank" rel="noopener">Textbook</a><br>Information Retrieval (IR) is finding material (usually documents) of an unstructured nature (usually text) that satisfies an information need from within large collections (usually stored on computers).  </li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
 
-    <div>
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/07/03/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="永缘空">
-      <meta itemprop="description" content="山东大学威海17级，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 主要学习CV，NLP等机器学习领域，此为个人博客，头像是可爱的宝宝~。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="永缘空的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/03/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/" class="post-title-link" itemprop="url">Kaggle比赛 NLP with Disaster Tweets 第二次尝试</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-03 23:55:27" itemprop="dateCreated datePublished" datetime="2020-07-03T23:55:27+08:00">2020-07-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-05 14:11:35" itemprop="dateModified" datetime="2020-07-05T14:11:35+08:00">2020-07-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nlp/" itemprop="url" rel="index"><span itemprop="name">nlp</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/07/03/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/03/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Kaggle比赛-NLP-with-Disaster-Tweets-第二次尝试"><a href="#Kaggle比赛-NLP-with-Disaster-Tweets-第二次尝试" class="headerlink" title="Kaggle比赛 NLP with Disaster Tweets 第二次尝试"></a>Kaggle比赛 NLP with Disaster Tweets 第二次尝试</h1><p>这个算是第二次尝试吧，当然其实和第一次的区别不大，就是调调参什么的，也算是对模型参数的一个熟悉过程吧，这个比第一次的结果提升了大概0.007。所以说有时候当一个调参侠还是有点用处的哈哈~<br>notebook参考<a href="https://www.kaggle.com/parulpandey/getting-started-with-nlp-feature-vectors" target="_blank" rel="noopener">Getting started with NLP-Feature Vectors</a><br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/03/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets-%E7%AC%AC%E4%BA%8C%E6%AC%A1%E5%B0%9D%E8%AF%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/" rel="prev" title="COMP4650(Document Analysis) Information Retrieval">
+      <i class="fa fa-chevron-left"></i> COMP4650(Document Analysis) Information Retrieval
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/07/01/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="永缘空">
-      <meta itemprop="description" content="山东大学威海17级，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 主要学习CV，NLP等机器学习领域，此为个人博客，头像是可爱的宝宝~。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="永缘空的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/01/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets/" class="post-title-link" itemprop="url">Kaggle比赛 NLP with Disaster Tweets</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-01 12:44:47" itemprop="dateCreated datePublished" datetime="2020-07-01T12:44:47+08:00">2020-07-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-04 12:27:00" itemprop="dateModified" datetime="2020-07-04T12:27:00+08:00">2020-07-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nlp/" itemprop="url" rel="index"><span itemprop="name">nlp</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/07/01/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/01/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.5k</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Kaggle比赛-NLP-with-Disaster-Tweets"><a href="#Kaggle比赛-NLP-with-Disaster-Tweets" class="headerlink" title="Kaggle比赛 NLP with Disaster Tweets"></a>Kaggle比赛 NLP with Disaster Tweets</h1><p>这个算是nlp比赛的第一次尝试，是个基础入门类型的比赛，也当是先熟悉一下nlp的一些基础方法。这个比赛主要也就是通过tweet的文本内容来判断他是否是在描述一场灾难。</p>
-<h2 id="如何从零开始"><a href="#如何从零开始" class="headerlink" title="如何从零开始"></a>如何从零开始</h2><p>首先呢，最好的开始kaggle比赛的方法是找一个baseline了解一下， 我这里就是先找了一个General Introduction了解一下nlp相关的预处理和模型。<a href="https://www.kaggle.com/parulpandey/getting-started-with-nlp-a-general-intro" target="_blank" rel="noopener">Getting started with NLP - A general Introduction</a><br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/01/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="永缘空">
-      <meta itemprop="description" content="山东大学威海17级，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 主要学习CV，NLP等机器学习领域，此为个人博客，头像是可爱的宝宝~。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="永缘空的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">怎样写博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-30 20:37:51" itemprop="dateCreated datePublished" datetime="2020-06-30T20:37:51+08:00">2020-06-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-02 21:59:24" itemprop="dateModified" datetime="2020-07-02T21:59:24+08:00">2020-07-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>654</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="编写博客"><a href="#编写博客" class="headerlink" title="编写博客"></a>编写博客</h1><p>编写博客的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;title&quot;</span><br></pre></td></tr></table></figure><br>title是博客的名称，即显示到主页的title<br>此条命令会在source/posts文件夹中新建一个以title命名的md文件，只需修改其md文件后再<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>执行上面两条命令即可将修改的md文件push到github上，即可通过网站访问，不过推荐先使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><br></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="永缘空">
-      <meta itemprop="description" content="山东大学威海17级，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 主要学习CV，NLP等机器学习领域，此为个人博客，头像是可爱的宝宝~。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="永缘空的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">第一篇博客 Hexo搭建</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-30 20:06:26" itemprop="dateCreated datePublished" datetime="2020-06-30T20:06:26+08:00">2020-06-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-02 21:59:25" itemprop="dateModified" datetime="2020-07-02T21:59:25+08:00">2020-07-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="第一篇博客-Hexo博客的建立与部署"><a href="#第一篇博客-Hexo博客的建立与部署" class="headerlink" title="第一篇博客-Hexo博客的建立与部署"></a>第一篇博客-Hexo博客的建立与部署</h1><ol>
-<li>经历过刺激的考试周， 假期试着学一下nlp再学习一下《统计学习方法》，为以后COMP4650和COMP4670的学习铺垫一下</li>
-<li>首先，感谢一下我的好兄弟兼好儿子<a href="https://mrsuncodes.github.io/" target="_blank" rel="noopener">MrSun</a>，按照他的博客先搭起了框架，这里先也写一下博客的搭建过程<h2 id="博客的搭建过程"><a href="#博客的搭建过程" class="headerlink" title="博客的搭建过程"></a>博客的搭建过程</h2></li>
-<li>首先下载node.js以及git(这两个都是hexo博客框架所需要的)<br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a><br><a href="https://git-scm.com/downloads/" target="_blank" rel="noopener">git</a></li>
-<li><p>安装Hexo<br>首先，node.js下载并安装后是默认安装npm(项目管理工具)  </p>
-<p>因为npm是使用国外镜像，所以我们修改并使用淘宝的镜像，这样之后的命令执行速度会变快， 其下载命令是:</p></li></ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -963,6 +464,7 @@ We can see in the figure, although the cf is the same for these two terms, there
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-to-Boolean-Retrieval"><span class="nav-number">1.</span> <span class="nav-text">Introduction to Boolean Retrieval</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bag-of-Words-BOW"><span class="nav-number">1.1.</span> <span class="nav-text">Bag-of-Words (BOW)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Assumption"><span class="nav-number">1.1.1.</span> <span class="nav-text">Assumption</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Field-Zone-in-Document"><span class="nav-number">1.2.</span> <span class="nav-text">Field (Zone) in Document</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Field-Index"><span class="nav-number">1.2.1.</span> <span class="nav-text">Basic Field Index</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Field-in-Posting"><span class="nav-number">1.2.2.</span> <span class="nav-text">Field in Posting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Limitations-of-Boolean-Retrieval"><span class="nav-number">1.2.3.</span> <span class="nav-text">Limitations of Boolean Retrieval</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ranked-Retrieval"><span class="nav-number">2.</span> <span class="nav-text">Ranked Retrieval</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Concept"><span class="nav-number">2.1.</span> <span class="nav-text">Concept</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Advantage"><span class="nav-number">2.1.1.</span> <span class="nav-text">Advantage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Weighted-Fields-Approach"><span class="nav-number">2.2.</span> <span class="nav-text">Weighted Fields Approach</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scoring-with-Weighted-Fields"><span class="nav-number">2.3.</span> <span class="nav-text">Scoring with Weighted Fields</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rank-by-Term-Frequency"><span class="nav-number">2.4.</span> <span class="nav-text">Rank by Term Frequency</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition"><span class="nav-number">2.4.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TF-Rank-Example"><span class="nav-number">2.4.2.</span> <span class="nav-text">TF Rank Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Importance-of-Terms"><span class="nav-number">2.4.3.</span> <span class="nav-text">Importance of Terms</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Document-Frequency-DF"><span class="nav-number">2.5.</span> <span class="nav-text">Document Frequency (DF)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-1"><span class="nav-number">2.5.1.</span> <span class="nav-text">Definition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inverse-Document-Frequency-IDF"><span class="nav-number">2.6.</span> <span class="nav-text">Inverse Document Frequency (IDF)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-2"><span class="nav-number">2.6.1.</span> <span class="nav-text">Definition</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TF-IDF"><span class="nav-number">2.7.</span> <span class="nav-text">TF-IDF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition-3"><span class="nav-number">2.7.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">2.7.2.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Limitation-of-tf-idf-scoring"><span class="nav-number">2.7.3.</span> <span class="nav-text">Limitation of tf-idf scoring</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sublinear-tf-scaling"><span class="nav-number">2.8.</span> <span class="nav-text">Sublinear tf scaling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Limitation-of-tf-idf-wf-idf-scoring"><span class="nav-number">2.8.1.</span> <span class="nav-text">Limitation of tf-idf&#x2F;wf-idf scoring</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maximum-tf-normalization"><span class="nav-number">2.9.</span> <span class="nav-text">Maximum tf normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Document-as-Vectors"><span class="nav-number">2.10.</span> <span class="nav-text">Document as Vectors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Document-Similarity-in-Vector-Space"><span class="nav-number">2.10.1.</span> <span class="nav-text">Document Similarity in Vector Space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Angle-Difference"><span class="nav-number">2.10.2.</span> <span class="nav-text">Angle Difference</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Query-as-Document"><span class="nav-number">2.11.</span> <span class="nav-text">Query as Document</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
