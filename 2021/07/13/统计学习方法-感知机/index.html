@@ -20,23 +20,21 @@
     var CONFIG = {"hostname":"lsx-sneakerprogrammer.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="第一篇博客-Hexo博客的建立与部署 经历过刺激的考试周， 假期试着学一下nlp再学习一下《统计学习方法》，为以后COMP4650和COMP4670的学习铺垫一下 首先，感谢一下我的好兄弟兼好儿子MrSun，按照他的博客先搭起了框架，这里先也写一下博客的搭建过程博客的搭建过程 首先下载node.js以及git(这两个都是hexo博客框架所需要的)node.jsgit 安装Hexo首先，node.j">
+  <meta name="description" content="简述由于首先接触到的是支持向量机，因此，感觉感知机算法就像是一个弱化版的支持向量机。在学习书中内容时，对对偶形式的解释进一步加强了我的理解，明白了向量内积矩阵对于算法加速的意义。 感知机模型感知机模型属于判别模型，目的是寻找可以将特征空间的训练数据集分为正负两类的超平面。在公式中，$x$代表输入向量， $w$代表权重向量（$weight$），$b$代表偏差（$bias$）。$sign$函数代表超平">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇博客 Hexo搭建">
-<meta property="og:url" content="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:title" content="统计学习方法-感知机">
+<meta property="og:url" content="https://lsx-sneakerprogrammer.github.io/2021/07/13/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-%E6%84%9F%E7%9F%A5%E6%9C%BA/index.html">
 <meta property="og:site_name" content="永缘空的博客">
-<meta property="og:description" content="第一篇博客-Hexo博客的建立与部署 经历过刺激的考试周， 假期试着学一下nlp再学习一下《统计学习方法》，为以后COMP4650和COMP4670的学习铺垫一下 首先，感谢一下我的好兄弟兼好儿子MrSun，按照他的博客先搭起了框架，这里先也写一下博客的搭建过程博客的搭建过程 首先下载node.js以及git(这两个都是hexo博客框架所需要的)node.jsgit 安装Hexo首先，node.j">
+<meta property="og:description" content="简述由于首先接触到的是支持向量机，因此，感觉感知机算法就像是一个弱化版的支持向量机。在学习书中内容时，对对偶形式的解释进一步加强了我的理解，明白了向量内积矩阵对于算法加速的意义。 感知机模型感知机模型属于判别模型，目的是寻找可以将特征空间的训练数据集分为正负两类的超平面。在公式中，$x$代表输入向量， $w$代表权重向量（$weight$），$b$代表偏差（$bias$）。$sign$函数代表超平">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/1.png">
-<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/1.png">
-<meta property="article:published_time" content="2020-06-30T12:06:26.000Z">
-<meta property="article:modified_time" content="2020-07-02T13:59:25.259Z">
+<meta property="article:published_time" content="2021-07-13T05:30:23.000Z">
+<meta property="article:modified_time" content="2021-07-20T11:58:36.536Z">
 <meta property="article:author" content="永缘空">
-<meta property="article:tag" content="博客搭建">
+<meta property="article:tag" content="machine learning">
+<meta property="article:tag" content="统计学习方法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/1.png">
 
-<link rel="canonical" href="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/">
+<link rel="canonical" href="https://lsx-sneakerprogrammer.github.io/2021/07/13/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-%E6%84%9F%E7%9F%A5%E6%9C%BA/">
 
 
 <script id="page-configurations">
@@ -49,7 +47,7 @@
   };
 </script>
 
-  <title>第一篇博客 Hexo搭建 | 永缘空的博客</title>
+  <title>统计学习方法-感知机 | 永缘空的博客</title>
   
 
 
@@ -174,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2021/07/13/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-%E6%84%9F%E7%9F%A5%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/header.jpg">
@@ -187,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第一篇博客 Hexo搭建
+          统计学习方法-感知机
         </h1>
 
         <div class="post-meta">
@@ -197,14 +195,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-06-30 20:06:26" itemprop="dateCreated datePublished" datetime="2020-06-30T20:06:26+08:00">2020-06-30</time>
+              <time title="创建时间：2021-07-13 13:30:23" itemprop="dateCreated datePublished" datetime="2021-07-13T13:30:23+08:00">2021-07-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-02 21:59:25" itemprop="dateModified" datetime="2020-07-02T21:59:25+08:00">2020-07-02</time>
+                <time title="修改时间：2021-07-20 19:58:36" itemprop="dateModified" datetime="2021-07-20T19:58:36+08:00">2021-07-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,7 +210,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a>
                 </span>
             </span>
 
@@ -232,8 +230,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/13/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-%E6%84%9F%E7%9F%A5%E6%9C%BA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/13/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-%E6%84%9F%E7%9F%A5%E6%9C%BA/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -243,7 +241,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.9k</span>
             </span>
 
         </div>
@@ -255,36 +253,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="第一篇博客-Hexo博客的建立与部署"><a href="#第一篇博客-Hexo博客的建立与部署" class="headerlink" title="第一篇博客-Hexo博客的建立与部署"></a>第一篇博客-Hexo博客的建立与部署</h1><ol>
-<li>经历过刺激的考试周， 假期试着学一下nlp再学习一下《统计学习方法》，为以后COMP4650和COMP4670的学习铺垫一下</li>
-<li>首先，感谢一下我的好兄弟兼好儿子<a href="https://mrsuncodes.github.io/" target="_blank" rel="noopener">MrSun</a>，按照他的博客先搭起了框架，这里先也写一下博客的搭建过程<h2 id="博客的搭建过程"><a href="#博客的搭建过程" class="headerlink" title="博客的搭建过程"></a>博客的搭建过程</h2></li>
-<li>首先下载node.js以及git(这两个都是hexo博客框架所需要的)<br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a><br><a href="https://git-scm.com/downloads/" target="_blank" rel="noopener">git</a></li>
-<li><p>安装Hexo<br>首先，node.js下载并安装后是默认安装npm(项目管理工具)  </p>
-<p>因为npm是使用国外镜像，所以我们修改并使用淘宝的镜像，这样之后的命令执行速度会变快， 其下载命令是:</p>
+        <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>由于首先接触到的是支持向量机，因此，感觉感知机算法就像是一个弱化版的支持向量机。在学习书中内容时，对对偶形式的解释进一步加强了我的理解，明白了向量内积矩阵对于算法加速的意义。</p>
+<h1 id="感知机模型"><a href="#感知机模型" class="headerlink" title="感知机模型"></a>感知机模型</h1><p>感知机模型属于判别模型，目的是寻找可以将特征空间的训练数据集分为正负两类的超平面。在公式中，$x$代表输入向量， $w$代表权重向量（$weight$），$b$代表偏差（$bias$）。$sign$函数代表超平面将数据集划分为正负两类。</p>
+<script type="math/tex; mode=display">f(x) = sign(w \cdot x + b) \tag 1</script><script type="math/tex; mode=display">
+        sign(x) =
+        \begin{cases}
+        +1,  & \text{$x \ge 0$} \\
+        -1, & \text{$x < 0$}
+        \end{cases} \tag 2</script><p>对于感知机模型来说，训练数据集必须是线性可分的，这样才存在超平面解。其次，分离平面也不是唯一的。由于采用随机梯度下降的方式，学习时数据的顺序也会导致超平面的变化。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<p>测试的命令分别为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. node -v</span><br><span class="line">2. npm -v</span><br><span class="line">3. cnpm</span><br></pre></td></tr></table></figure>
-<p>完成之后安装Hexo：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>检验Hexo是否安装成功：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建一个目录：(我的是放在了D:/MyBlog)<br>使用命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>这步是将框架初始化的内容添加到你刚才创建的文件夹中</p>
-</li>
-<li>运行测试：<br>常使用的四个命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #用来清理缓存文件</span><br><span class="line">hexo g     #生成文件</span><br><span class="line">hexo s     #运行本地服务器</span><br><span class="line">hexo d     #上传到服务器</span><br></pre></td></tr></table></figure>
-运行时，先使用命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-打开浏览器的<strong>localhost:4000</strong>，即可发现本地登录成功。<br>我是部署到github上，不需要关心服务器租赁费以及域名等等问题，<br>首先在github上面创建一个新的仓库，名字就叫做[github用户名].github.io,然后在自己所创建的目录中[我的是D:/MyBlog]打开_config.yml文件，将其中的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br></pre></td></tr></table></figure>
-字段填补完整为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;LSX-Sneakerprogrammer&#x2F;LSX-Sneakerprogrammer.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-repo中的地址及你在github上面创建的仓库地址。<br>最后，只需执行一条命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-即可将本地的所有文件push到github仓库中，此时访问<br><a href="https://lsx-sneakerprogrammer.github.io/">MyBlog</a> 即你的用户名.github.io即可(可能需要多刷新几下)  </li>
+<h1 id="损失函数"><a href="#损失函数" class="headerlink" title="损失函数"></a>损失函数</h1><p>首先，我们要确定的是损失函数。感知机特殊的地方在于，它不能够直接使用平方差损失函数，因为它的损失函数需要能体现出误分类的总数。公式三可以指出，如果一个数据被误分类的话，它的真实标签与预测标签一定是符号相反的。因此，所有误分类标签的集合就是感知机的损失函数（不考虑$\Vert{w}\Vert$的话），如公式四所示（M代表误分类总集合）。</p>
+<script type="math/tex; mode=display">f(x) = -y_i (w \cdot x_i + b) > 0 \tag 3</script><script type="math/tex; mode=display">f(x) = -\sum_{x_i \in M} y_i (w \cdot x_i + b) \tag 4</script><h1 id="优化算法"><a href="#优化算法" class="headerlink" title="优化算法"></a>优化算法</h1><p>感知机采用随机梯度下降算法进行优化。步骤如下  </p>
+<ol>
+<li>选取$w$（权重）和$b$（偏差）的初值。</li>
+<li>选取训练集中的数据（$x_i$, $y_i$）。</li>
+<li>如果$f(x) = -y_i (w \cdot x_i + b) &gt; 0$，说明需要根据该误分类点更新数据。其中$\eta$是学习率，更新值则分别是损失函数对$w$和$b$求偏导得出。<script type="math/tex; mode=display">w \leftarrow w + \eta y_ix_i \tag 5</script><script type="math/tex; mode=display">b \leftarrow b + \eta y_i \tag 6</script></li>
+<li>一直重复步骤2，3直到没有误分类点。<br>在《统计机器学习》一书中，作者证明了对于线性可分数据集，经过有限次迭代可以得到一个完全正确分类所有训练集的超平面，这里不再展开</li>
 </ol>
-   <!-- ![1](第一篇博客-Hexo搭建/1.png) -->
-   <!-- <img src="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/1.png" class="" title="This is an example image"> -->
-   <img src="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/1.png" class title="[第一篇博客-Hexo搭建]">
-<p>   大功告成！个人博客已经搞起来了！剩下的就是编写博客以及修改主题等样式了，具体可看我的下一篇博客。</p>
+<h1 id="感知机算法的对偶形式"><a href="#感知机算法的对偶形式" class="headerlink" title="感知机算法的对偶形式"></a>感知机算法的对偶形式</h1><p>最开始接触对偶形式还是在支持向量机中的核方法，这里又重新接触一遍。在感知机中，对偶形式表示可以使用向量内积的方式来加速算法的收敛。在公式5和6中，我们可以看到，对于权重的更新，是学习率乘以真实标签的值再乘以数据点的值（$\eta y_i x_i$）。对于偏差的更新，是学习率乘以真实标签的值（$\eta y_i$）。如果$w$和$b$的初始值为零的话，那么最终它们的值将为:</p>
+<script type="math/tex; mode=display">w = \sum_{i=1}^{N}\alpha_i y_i x_i, \space b = \sum_{i=1}^{N}\alpha_i y_i, \space \alpha_i = n_i \eta \tag 7</script><p>在这里$\alpha_i$代表对应的数据点更新的次数乘以学习率。因此，当我们算出每一个数据点更新的次数，我们就可以通过公式7直接得出最后的权重与偏差。这将是非常方便的，因为在更新参数时我们会将每一个$\alpha_j y_j x_j$与当前数据点的向量$x_i$进行点乘，而$x_j$与$x_i$我们可以提前计算好内积矩阵。内积矩阵与$\alpha_j y_j$相乘时又可以使用矩阵操作，这将大大减少运算时间从而提高效率。<br>首先，感知机模型将会变成</p>
+<script type="math/tex; mode=display">f(x) = sign(\sum_{j=1}^{N}\alpha_j y_j x_j \cdot x + b) \tag 8</script><p>其中，$\alpha = (\alpha_1, \alpha_2, …., \alpha_N)^T$<br>因此，算法的收敛过程将会变成如下形式：</p>
+<ol>
+<li>$\alpha \leftarrow 0, \space b \leftarrow 0$</li>
+<li>选取数据点$(x_i, y_i)$</li>
+<li>如果 $-y<em>i(\sum</em>{j=1}^{N}\alpha_j y_j x_j \cdot x + b) &gt; 0$,<br>更新 <script type="math/tex; mode=display">\alpha \leftarrow \alpha_i + \eta \tag 9</script><script type="math/tex; mode=display">b \leftarrow b_i + \eta y_i \tag {10}</script></li>
+<li>重复2，3直到完全收敛</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>感知机算法总的来说是个基础的机器学习二分类算法，利用真实标签与预测标签之间的正负性作为损失函数，使用随机梯度下降法来更新参数。而且，对偶形式的出现使得我们更新参数时只需要计算每一个数据点更新次数和内积矩阵的乘积，大大提高了计算速度，也为后续SVM中核方法的使用进行了铺垫。</p>
 
     </div>
 
@@ -305,7 +300,8 @@ repo中的地址及你在github上面创建的仓库地址。<br>最后，只需
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"># 博客搭建</a>
+              <a href="/tags/machine-learning/" rel="tag"># machine learning</a>
+              <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag"># 统计学习方法</a>
           </div>
 
         
@@ -313,10 +309,13 @@ repo中的地址及你在github上面创建的仓库地址。<br>最后，只需
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/" rel="next" title="怎样写博客">
-      怎样写博客 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/06/20/PRML-Kernel-PCA/" rel="prev" title="PRML-Kernel PCA">
+      <i class="fa fa-chevron-left"></i> PRML-Kernel PCA
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/18/LeetCode%E7%AC%94%E8%AE%B0/" rel="next" title="LeetCode笔记">
+      LeetCode笔记 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -377,7 +376,7 @@ repo中的地址及你在github上面创建的仓库地址。<br>最后，只需
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一篇博客-Hexo博客的建立与部署"><span class="nav-number">1.</span> <span class="nav-text">第一篇博客-Hexo博客的建立与部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#博客的搭建过程"><span class="nav-number">1.1.</span> <span class="nav-text">博客的搭建过程</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感知机模型"><span class="nav-number">2.</span> <span class="nav-text">感知机模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#损失函数"><span class="nav-number">3.</span> <span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#优化算法"><span class="nav-number">4.</span> <span class="nav-text">优化算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感知机算法的对偶形式"><span class="nav-number">5.</span> <span class="nav-text">感知机算法的对偶形式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -520,6 +519,59 @@ repo中的地址及你在github上面创建的仓库地址。<br>最后，只需
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
