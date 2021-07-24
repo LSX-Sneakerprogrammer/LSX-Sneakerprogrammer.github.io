@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"lsx-sneakerprogrammer.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="编写博客编写博客的命令：1hexo new &quot;title&quot;title是博客的名称，即显示到主页的title此条命令会在source&#x2F;posts文件夹中新建一个以title命名的md文件，只需修改其md文件后再123hexo cleanhexo ghexo d执行上面两条命令即可将修改的md文件push到github上，即可通过网站访问，不过推荐先使用123hexo cleanh">
+  <meta name="description" content="简述k近邻算法主要思想就是根据给定的距离度量方法，在训练集中找到与目标点最近邻的k个点，在这k个点中根据决策规则（通常是多数表决）决定目标点的类别。 距离度量$L_p$距离（$L_p$ distance）假设$x_i, x_j \in \textbf{R}^n$，$x_i &#x3D; (x_i^{(1)},x_i^{(2)},\dots, x_i^{(n)})^T$，$x_j &#x3D; (x_j^{(1)},x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="怎样写博客">
-<meta property="og:url" content="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="统计学习方法-k近邻法">
+<meta property="og:url" content="https://lsx-sneakerprogrammer.github.io/2021/07/24/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-k%E8%BF%91%E9%82%BB%E6%B3%95/index.html">
 <meta property="og:site_name" content="永缘空的博客">
-<meta property="og:description" content="编写博客编写博客的命令：1hexo new &quot;title&quot;title是博客的名称，即显示到主页的title此条命令会在source&#x2F;posts文件夹中新建一个以title命名的md文件，只需修改其md文件后再123hexo cleanhexo ghexo d执行上面两条命令即可将修改的md文件push到github上，即可通过网站访问，不过推荐先使用123hexo cleanh">
+<meta property="og:description" content="简述k近邻算法主要思想就是根据给定的距离度量方法，在训练集中找到与目标点最近邻的k个点，在这k个点中根据决策规则（通常是多数表决）决定目标点的类别。 距离度量$L_p$距离（$L_p$ distance）假设$x_i, x_j \in \textbf{R}^n$，$x_i &#x3D; (x_i^{(1)},x_i^{(2)},\dots, x_i^{(n)})^T$，$x_j &#x3D; (x_j^{(1)},x">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-30T12:37:51.000Z">
-<meta property="article:modified_time" content="2020-07-02T13:59:24.264Z">
+<meta property="article:published_time" content="2021-07-24T06:14:37.000Z">
+<meta property="article:modified_time" content="2021-07-24T14:46:05.244Z">
 <meta property="article:author" content="永缘空">
-<meta property="article:tag" content="博客搭建">
+<meta property="article:tag" content="machine learning">
+<meta property="article:tag" content="统计学习方法">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="https://lsx-sneakerprogrammer.github.io/2021/07/24/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-k%E8%BF%91%E9%82%BB%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -46,7 +47,7 @@
   };
 </script>
 
-  <title>怎样写博客 | 永缘空的博客</title>
+  <title>统计学习方法-k近邻法 | 永缘空的博客</title>
   
 
 
@@ -171,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2021/07/24/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-k%E8%BF%91%E9%82%BB%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/header.jpg">
@@ -184,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          怎样写博客
+          统计学习方法-k近邻法
         </h1>
 
         <div class="post-meta">
@@ -193,23 +194,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-06-30 20:37:51" itemprop="dateCreated datePublished" datetime="2020-06-30T20:37:51+08:00">2020-06-30</time>
+              <time title="创建时间：2021-07-24 14:14:37 / 修改时间：22:46:05" itemprop="dateCreated datePublished" datetime="2021-07-24T14:14:37+08:00">2021-07-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-02 21:59:24" itemprop="dateModified" datetime="2020-07-02T21:59:24+08:00">2020-07-02</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a>
                 </span>
             </span>
 
@@ -229,8 +224,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/24/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-k%E8%BF%91%E9%82%BB%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/24/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-k%E8%BF%91%E9%82%BB%E6%B3%95/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -240,7 +235,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>654</span>
+              <span>958</span>
             </span>
 
         </div>
@@ -252,10 +247,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="编写博客"><a href="#编写博客" class="headerlink" title="编写博客"></a>编写博客</h1><p>编写博客的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;title&quot;</span><br></pre></td></tr></table></figure><br>title是博客的名称，即显示到主页的title<br>此条命令会在source/posts文件夹中新建一个以title命名的md文件，只需修改其md文件后再<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>执行上面两条命令即可将修改的md文件push到github上，即可通过网站访问，不过推荐先使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure><br><a id="more"></a><br>在本地进行测试，这样更快而且只要本地服务器开着，就不需要再上传一遍才能看效果了，可以边看效果边修改，之后一并将修改的最终内容push到github。  </p>
-<p>编写博客时，我使用的是VS Code，也可以使用有道云笔记。  </p>
-<p>如果博客中有图片需要上传，首先找到项目根目录的_config.yml文件,修改post_asset_folder属性为true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure><br>别忘再<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure><br>此时再使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;title&quot;</span><br></pre></td></tr></table></figure><br>创建新博客时，在source/posts中会生成title同名文件夹,只需将所有该博客需要的图片放入其中，然后在图片引用位置加上<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img 图片名.图片后缀 [title] %&#125;</span><br></pre></td></tr></table></figure><br><strong>title直接就是该博客的title，不需要再加引号</strong></p>
-<p>至于修改博客的样式，需要修改主目录下的 _config.yml文件，以及themes/你的主题下的 _config.yml文件，我主要参考了以下三个网页：<br><a href="https://blog.csdn.net/weixin_44815733/article/details/88817220" target="_blank" rel="noopener">主题设置1</a><br><a href="https://blog.csdn.net/nightmare_dimple/article/details/86661502?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">主题设置2</a><br><a href="https://segmentfault.com/a/1190000009544924" target="_blank" rel="noopener">主题设置3</a></p>
+        <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>k近邻算法主要思想就是根据给定的距离度量方法，在训练集中找到与目标点最近邻的k个点，在这k个点中根据决策规则（通常是多数表决）决定目标点的类别。</p>
+<h1 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h1><h2 id="L-p-距离（-L-p-distance）"><a href="#L-p-距离（-L-p-distance）" class="headerlink" title="$L_p$距离（$L_p$ distance）"></a>$L_p$距离（$L_p$ distance）</h2><p>假设$x_i, x_j \in \textbf{R}^n$，$x_i = (x_i^{(1)},x_i^{(2)},\dots, x_i^{(n)})^T$，$x_j = (x_j^{(1)},x_j^{(2)},\dots, x_j^{(n)})^T$  </p>
+<p>则$L_p$距离的定义为</p>
+<script type="math/tex; mode=display">L_p(x_i, x_j) = (\sum_{l=1}^n|x_i^{(l)} - x_j^{(l)}|^p)^{\frac{1}{p}}, \space p \ge 1 \tag 1</script><p>当$p=1$时，称为曼哈顿距离(Manhattan distance)</p>
+<script type="math/tex; mode=display">L_1(x_i, x_j) = \sum_{l=1}^n|x_i^{(l)} - x_j^{(l)}| \tag 2</script><a id="more"></a>
+<p>当$p=2$时，称为欧式距离(Euclidean distance)</p>
+<script type="math/tex; mode=display">L_2(x_i, x_j) = (\sum_{l=1}^n(x_i^{(l)} - x_j^{(l)})^2)^{\frac{1}{2}} \tag 3</script><p>当$p=\infty$时，是各个坐标距离的最大值</p>
+<script type="math/tex; mode=display">L_{\infty}(x_i, x_j) = \mathop{\text{max}}\limits_{l} |x_i^{(l)} - x_j^{(l)}| \tag 4</script><h1 id="k值的选择"><a href="#k值的选择" class="headerlink" title="k值的选择"></a>k值的选择</h1><p>如果选择较小的k值，目标点会对周围的近邻点非常敏感，容易受到噪声的影响，发生过拟合。如果选择较大的k值，则离目标点较远的非相似点会对目标点产生影响，发生欠拟合。因此，通常对特定数据集采用多次交叉验证的方式来确定k值。</p>
+<h1 id="分类规则"><a href="#分类规则" class="headerlink" title="分类规则"></a>分类规则</h1><p>最常用的就是多数表决，对于一个含有j类标签的数据集，目标点的标签确定是通过附近k邻域内最多的标签来决定。因此，对于$k$个训练实例点构成的集合$N_k(x)$，如果涵盖$N_k(x)$的区域的类别是$c_j$，那么误分类率为</p>
+<script type="math/tex; mode=display">\frac{1}{k} \sum_{x_i \in N_k(x)} I (y_i \ne c_j) = 1 - \frac{1}{k} \sum_{x_i \in N_k(x)} I (y_i = c_j) \tag 5</script><p>使$\sum_{x_i \in N_k(x)} I (y_i = c_j)$最大即误分类率最小</p>
+<!-- ## 参考
+
+- [1] [百度学术](http://xueshu.baidu.com/)
+- [2] [Wikipedia](https://en.wikipedia.org/wiki/Main_Page) -->
 
     </div>
 
@@ -276,7 +281,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"># 博客搭建</a>
+              <a href="/tags/machine-learning/" rel="tag"># machine learning</a>
+              <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95/" rel="tag"># 统计学习方法</a>
           </div>
 
         
@@ -285,13 +291,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/" rel="prev" title="第一篇博客 Hexo搭建">
-      <i class="fa fa-chevron-left"></i> 第一篇博客 Hexo搭建
+    <a href="/2021/07/18/LeetCode%E7%AC%94%E8%AE%B0/" rel="prev" title="LeetCode笔记">
+      <i class="fa fa-chevron-left"></i> LeetCode笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/01/Kaggle%E6%AF%94%E8%B5%9B-NLP-with-Disaster-Tweets/" rel="next" title="Kaggle比赛 NLP with Disaster Tweets">
-      Kaggle比赛 NLP with Disaster Tweets <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -351,7 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#编写博客"><span class="nav-number">1.</span> <span class="nav-text">编写博客</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简述"><span class="nav-number">1.</span> <span class="nav-text">简述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#距离度量"><span class="nav-number">2.</span> <span class="nav-text">距离度量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#L-p-距离（-L-p-distance）"><span class="nav-number">2.1.</span> <span class="nav-text">$L_p$距离（$L_p$ distance）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#k值的选择"><span class="nav-number">3.</span> <span class="nav-text">k值的选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分类规则"><span class="nav-number">4.</span> <span class="nav-text">分类规则</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -494,6 +497,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

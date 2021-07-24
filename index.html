@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">9</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">10</span></a>
 
   </li>
   </ul>
@@ -166,6 +166,110 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2021/07/24/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-k%E8%BF%91%E9%82%BB%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="永缘空">
+      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永缘空的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/07/24/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-k%E8%BF%91%E9%82%BB%E6%B3%95/" class="post-title-link" itemprop="url">统计学习方法-k近邻法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-07-24 14:14:37 / 修改时间：22:46:05" itemprop="dateCreated datePublished" datetime="2021-07-24T14:14:37+08:00">2021-07-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index"><span itemprop="name">machine learning</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/07/24/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-k%E8%BF%91%E9%82%BB%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/24/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-k%E8%BF%91%E9%82%BB%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>958</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h1><p>k近邻算法主要思想就是根据给定的距离度量方法，在训练集中找到与目标点最近邻的k个点，在这k个点中根据决策规则（通常是多数表决）决定目标点的类别。</p>
+<h1 id="距离度量"><a href="#距离度量" class="headerlink" title="距离度量"></a>距离度量</h1><h2 id="L-p-距离（-L-p-distance）"><a href="#L-p-距离（-L-p-distance）" class="headerlink" title="$L_p$距离（$L_p$ distance）"></a>$L_p$距离（$L_p$ distance）</h2><p>假设$x_i, x_j \in \textbf{R}^n$，$x_i = (x_i^{(1)},x_i^{(2)},\dots, x_i^{(n)})^T$，$x_j = (x_j^{(1)},x_j^{(2)},\dots, x_j^{(n)})^T$  </p>
+<p>则$L_p$距离的定义为</p>
+<script type="math/tex; mode=display">L_p(x_i, x_j) = (\sum_{l=1}^n|x_i^{(l)} - x_j^{(l)}|^p)^{\frac{1}{p}}, \space p \ge 1 \tag 1</script><p>当$p=1$时，称为曼哈顿距离(Manhattan distance)</p>
+<script type="math/tex; mode=display">L_1(x_i, x_j) = \sum_{l=1}^n|x_i^{(l)} - x_j^{(l)}| \tag 2</script>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/24/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95-k%E8%BF%91%E9%82%BB%E6%B3%95/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -1228,7 +1332,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1278,7 +1382,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">29k</span>
+    <span title="站点总字数">30k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
