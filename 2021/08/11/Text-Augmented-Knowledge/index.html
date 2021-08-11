@@ -28,7 +28,7 @@
 <meta property="og:description" content="前言《Text-Augmented Knowledge Representation Learning Based on Convolutional Network》阅读笔记 Introduction NotesKnowledge Graphs have the relationship triples (subject, relation, object) denoted as (h,r,t),">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-10T16:21:44.000Z">
-<meta property="article:modified_time" content="2021-08-10T16:31:07.055Z">
+<meta property="article:modified_time" content="2021-08-11T15:18:54.052Z">
 <meta property="article:author" content="永缘空">
 <meta property="article:tag" content="knowledgeGraph">
 <meta property="article:tag" content="paper">
@@ -196,7 +196,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-08-11 00:21:44 / 修改时间：00:31:07" itemprop="dateCreated datePublished" datetime="2021-08-11T00:21:44+08:00">2021-08-11</time>
+              <time title="创建时间：2021-08-11 00:21:44 / 修改时间：23:18:54" itemprop="dateCreated datePublished" datetime="2021-08-11T00:21:44+08:00">2021-08-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,7 +235,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
+              <span>7.7k</span>
             </span>
 
         </div>
@@ -301,6 +301,70 @@
 <li>$t<em>{d} \in e</em>{d}$ represents the description text coding of the tail</li>
 <li>$R_{d}$ represents the corresponding low-dimensional vectors of entities, relations, and descriptions.</li>
 <li>For example, embedding $h, t \in E$ and $r \in R$ are equal<br>to $h, t, r \in R_{d}$ respectively in the d−dimension.</li>
+</ul>
+<h2 id="Neural-Network-Text-Encoding"><a href="#Neural-Network-Text-Encoding" class="headerlink" title="Neural Network Text Encoding"></a>Neural Network Text Encoding</h2><p>$\textbf{Preprocess}$:</p>
+<ul>
+<li>Remove all stop words </li>
+<li>Mark all the words(phrases which entity names in the training set) in the descriptions</li>
+<li>Extract multi-themed words for each entity as description</li>
+<li>Use fastText to encode the words into word vectors as input to the A-BiLSTM encoder</li>
+</ul>
+<p>$\textbf{BiLSTM Encoder}$:<br>To construct BiLSTM, the author need to apply a forward and backward LSTM network to each training sequence and connnect them to the same output layer. <span style="border-bottom:2px dashed black;">It can provide the complete contextual information of each sequence point to the output layer.</span></p>
+<p>$\textbf{Self Attentive BiLSTM Encoder}$:<br>The author lead an attention mechanism into BiLSTM to encode depending on the different relations of the context in order to improve the text representations. </p>
+<p>The author uses the attention mechanism to extract the features from $h_{i}$ embeddings.</p>
+<p>For each position i of the text description, the attention to a given word embedding $h<em>{i}$ is defined as $a</em>{i}$.</p>
+<script type="math/tex; mode=display">a_{i} = \frac{exp(v_{a}^{T}tanh(W_{a}h_{i} + b_{a}))}{\sum_j exp(v_{a}^{T}tanh(W_{a}h_{j} + b_{a}))}</script><p>where $h<em>{i} \in  R</em>{d}$ is the output of BiLSTM at position $i, v<em>{a} \in R^{d \times d}$ is a parameter vector, $W</em>{a}, b<em>{a} \in R</em>{d}$ are parameter matrixs.</p>
+<p>Therefore, use the attention mechanism, we could know which part of the embeddings will be concerned. The final description embedding will be $e<em>{i} = \sum</em>{i=1}^{n} a<em>{i} \cdot h</em>{i}$</p>
+<h2 id="Joint-Structure-and-Text-Encoding"><a href="#Joint-Structure-and-Text-Encoding" class="headerlink" title="Joint Structure and Text Encoding"></a>Joint Structure and Text Encoding</h2><p>To balance two sources of information, the author combines the $e<em>{s}$ and $e</em>{d}$ for an entity $e$.</p>
+<h3 id="Linear-Interaction"><a href="#Linear-Interaction" class="headerlink" title="Linear Interaction"></a>Linear Interaction</h3><script type="math/tex; mode=display">e = \alpha \cdot e_{s} + (1 - \alpha) \cdot e_{d}</script><p>where $0 &lt; \alpha &lt; 1$ and $\alpha$ is uncertain.</p>
+<h3 id="Second-order-Interaction"><a href="#Second-order-Interaction" class="headerlink" title="Second-order Interaction"></a>Second-order Interaction</h3><p>Referring to the gated mechanism in LSTM gate units:</p>
+<script type="math/tex; mode=display">e = tanh(e_{s}) \otimes sigmoid(e_{d})</script><p>where $\otimes$ is point multiplication</p>
+<h3 id="Triple-Embedding"><a href="#Triple-Embedding" class="headerlink" title="Triple Embedding"></a>Triple Embedding</h3><p>$e$ is the final entity representation. Because there is no description for relations, the structural embeddings are regarded as the textual embeddings for relation. <span style="border-bottom:2px dashed black;">The triple embeddings containing entity embeddings and relation embeddings are fed into CNN to extract features for link prediction.</span></p>
+<h2 id="Training-and-Socre-Function"><a href="#Training-and-Socre-Function" class="headerlink" title="Training and Socre Function"></a>Training and Socre Function</h2><ul>
+<li>$\kappa$ denotes the set of filters</li>
+<li>$\tau$ denotes the number of filters</li>
+<li>$\tau = |\kappa|$ results in $\tau$ feature maps</li>
+<li>Concatenate the $\tau$ feature maps into a vector $\in R^{\tau d \times 1}$</li>
+<li>For the triple $(h, r, t)$, the score function of TA-ConvKB is as follows:<script type="math/tex; mode=display">f(h, r, t) = concat(g(tanh([h_s, r, t_s]) \otimes sigmoid([h_d, r, t_d])) * \kappa) \cdot w</script>where $w \in R^{\tau d \times 1}$, $g$ is Relu activation functions, $*$ denotes a convolution operator.</li>
+<li>Use the Adam optimizer and loss function L<script type="math/tex; mode=display">L = \sum (h, r, t) log (1 + exp((l_{(h, r, t)}) \cdot f(h, r, t))) + \frac{\lambda}{2} ||w||_{2}^{2}</script>where $(h, r, t) \in G ∪ G^{‘}$, $l(h,r,t) = 1$ when $(h, r, t) \in G$, $l(h,r,t) = −1$ when $(h, r, t) \in G$, here $G^{‘}$ is a collection of invalid triples generated by corrupting valid triples in $G$.</li>
+</ul>
+<h1 id="Experiments-Notes"><a href="#Experiments-Notes" class="headerlink" title="Experiments Notes"></a>Experiments Notes</h1><h2 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h2><p>WN18RR and FB15k237.</p>
+<h2 id="Assessment-Strategy"><a href="#Assessment-Strategy" class="headerlink" title="Assessment Strategy"></a>Assessment Strategy</h2><p>$\textbf{KG link prediction task}$: the purpose is to predict a missing entity given a relation and another entity. The author ranks the scores of score function on test triples to get the result. To construct corrupted triples, replace one of the two entities in the triples. </p>
+<p>$\textbf{Have problems to ask}$<br><span style="border-bottom:2px dashed black;">“We use the “Filtered” setting protocol, not taking any corrupted triples that appear in the KG into accounts.”</span></p>
+<p>$\textbf{Three metrics}$:</p>
+<ul>
+<li>mean rank (MR) (Need lower MR)</li>
+<li>mean reciprocal rank (MRR) (Need higher MRR)</li>
+<li>H@10 (i.e., the proportion of the valid test triples ranking in top 10 predictions) (higher H@10.)</li>
+</ul>
+<h2 id="Training-Strategy"><a href="#Training-Strategy" class="headerlink" title="Training Strategy"></a>Training Strategy</h2><h3 id="Text-Embeddings"><a href="#Text-Embeddings" class="headerlink" title="Text Embeddings"></a>Text Embeddings</h3><p>$\textbf{In FB15k-237}$  </p>
+<ul>
+<li>10 keywords are extracted for each entity description</li>
+<li>FastText is used to encode a 100-dimensional word vector</li>
+<li>In the A-BiLSTM encoder, embedding dimension is 100, the sequence length is 10 and the number of hidden layer units is 50</li>
+<li>Finally, output 100-d vector  </li>
+</ul>
+<p>$\textbf{In WN18RR}$  </p>
+<ul>
+<li>Similar with FB15k-237 except the keywords is 3</li>
+</ul>
+<h3 id="Structural-Embeddings"><a href="#Structural-Embeddings" class="headerlink" title="Structural Embeddings"></a>Structural Embeddings</h3><ul>
+<li>Train STransE for 3,000 epochs </li>
+</ul>
+<h3 id="Hyperparameters"><a href="#Hyperparameters" class="headerlink" title="Hyperparameters"></a>Hyperparameters</h3><ul>
+<li>200 epochs</li>
+<li>Adam as optimizer</li>
+<li>ReLU as the activation function</li>
+<li>Batch size at 256</li>
+<li>L2-regularizer $\lambda$ at 0.005</li>
+<li>In WN18RR, using k = 100, τ = 200, the truncated normal distribution for filter $w$ initialization, initial learning rate at 1e−4</li>
+<li>In FB15k-237, k = 100, τ = 40, [0.1, 0.1, −0.1] for filter $w$ initialization, and the initial learning rate at 5e−6.</li>
+</ul>
+<h2 id="Main-Experimental-Results"><a href="#Main-Experimental-Results" class="headerlink" title="Main Experimental Results"></a>Main Experimental Results</h2><p>In both dataset, the H@10 evaluation method gets the highest performance compared with other models.</p>
+<h1 id="Future-Work-Notes"><a href="#Future-Work-Notes" class="headerlink" title="Future Work Notes"></a>Future Work Notes</h1><ul>
+<li>Use more accurate word vector representations, such as Elmo model</li>
+<li>Explore kinds of combinations between structural embeddings and textual embeddings</li>
+<li>Integrate the image information of the entities</li>
 </ul>
 
     </div>
@@ -395,7 +459,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-Notes"><span class="nav-number">2.</span> <span class="nav-text">Introduction Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#KGs-completion-or-link-prediction"><span class="nav-number">2.1.</span> <span class="nav-text">KGs completion or link prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Importance-of-Text-Descriptions"><span class="nav-number">2.2.</span> <span class="nav-text">Importance of Text Descriptions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TA-ConvKB-Model"><span class="nav-number">2.3.</span> <span class="nav-text">TA-ConvKB Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contributions"><span class="nav-number">2.4.</span> <span class="nav-text">Contributions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-Work-Notes"><span class="nav-number">3.</span> <span class="nav-text">Related Work Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TransE-Model"><span class="nav-number">3.1.</span> <span class="nav-text">TransE Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConvKB-Model"><span class="nav-number">3.2.</span> <span class="nav-text">ConvKB Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Others"><span class="nav-number">3.3.</span> <span class="nav-text">Others</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Text-Augmented-Knowledge-Graph-Representation-Notes"><span class="nav-number">4.</span> <span class="nav-text">Text-Augmented Knowledge Graph Representation Notes</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-Notes"><span class="nav-number">2.</span> <span class="nav-text">Introduction Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#KGs-completion-or-link-prediction"><span class="nav-number">2.1.</span> <span class="nav-text">KGs completion or link prediction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Importance-of-Text-Descriptions"><span class="nav-number">2.2.</span> <span class="nav-text">Importance of Text Descriptions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TA-ConvKB-Model"><span class="nav-number">2.3.</span> <span class="nav-text">TA-ConvKB Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contributions"><span class="nav-number">2.4.</span> <span class="nav-text">Contributions</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-Work-Notes"><span class="nav-number">3.</span> <span class="nav-text">Related Work Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TransE-Model"><span class="nav-number">3.1.</span> <span class="nav-text">TransE Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConvKB-Model"><span class="nav-number">3.2.</span> <span class="nav-text">ConvKB Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Others"><span class="nav-number">3.3.</span> <span class="nav-text">Others</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Text-Augmented-Knowledge-Graph-Representation-Notes"><span class="nav-number">4.</span> <span class="nav-text">Text-Augmented Knowledge Graph Representation Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neural-Network-Text-Encoding"><span class="nav-number">4.1.</span> <span class="nav-text">Neural Network Text Encoding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Joint-Structure-and-Text-Encoding"><span class="nav-number">4.2.</span> <span class="nav-text">Joint Structure and Text Encoding</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Interaction"><span class="nav-number">4.2.1.</span> <span class="nav-text">Linear Interaction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Second-order-Interaction"><span class="nav-number">4.2.2.</span> <span class="nav-text">Second-order Interaction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Triple-Embedding"><span class="nav-number">4.2.3.</span> <span class="nav-text">Triple Embedding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-and-Socre-Function"><span class="nav-number">4.3.</span> <span class="nav-text">Training and Socre Function</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Experiments-Notes"><span class="nav-number">5.</span> <span class="nav-text">Experiments Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dataset"><span class="nav-number">5.1.</span> <span class="nav-text">Dataset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Assessment-Strategy"><span class="nav-number">5.2.</span> <span class="nav-text">Assessment Strategy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-Strategy"><span class="nav-number">5.3.</span> <span class="nav-text">Training Strategy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Text-Embeddings"><span class="nav-number">5.3.1.</span> <span class="nav-text">Text Embeddings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Structural-Embeddings"><span class="nav-number">5.3.2.</span> <span class="nav-text">Structural Embeddings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hyperparameters"><span class="nav-number">5.3.3.</span> <span class="nav-text">Hyperparameters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main-Experimental-Results"><span class="nav-number">5.4.</span> <span class="nav-text">Main Experimental Results</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Future-Work-Notes"><span class="nav-number">6.</span> <span class="nav-text">Future Work Notes</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -461,7 +525,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">41k</span>
+    <span title="站点总字数">45k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
