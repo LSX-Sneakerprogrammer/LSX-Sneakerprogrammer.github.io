@@ -20,20 +20,21 @@
     var CONFIG = {"hostname":"lsx-sneakerprogrammer.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="永缘空的博客">
-<meta property="og:url" content="https://lsx-sneakerprogrammer.github.io/archives/2021/06/index.html">
+  <meta name="description" content="PerfaceThis is the notes when I was reading Representing Text for Joint Embedding of Text and Knowledge Bases paper. Introduction NotesThis paper was based on jointly learning continuous representatio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Representing Text for Joint Embedding of Text and Knowledge Bases 笔记">
+<meta property="og:url" content="https://lsx-sneakerprogrammer.github.io/2021/08/16/Representing-Text-for-Joint-Embedding-of-Text-and-Knowledge-Bases-%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="永缘空的博客">
-<meta property="og:description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
+<meta property="og:description" content="PerfaceThis is the notes when I was reading Representing Text for Joint Embedding of Text and Knowledge Bases paper. Introduction NotesThis paper was based on jointly learning continuous representatio">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-16T15:49:21.000Z">
+<meta property="article:modified_time" content="2021-08-16T15:50:23.700Z">
 <meta property="article:author" content="永缘空">
-<meta property="article:tag" content="机器学习">
-<meta property="article:tag" content="nlp">
-<meta property="article:tag" content="pytorch">
+<meta property="article:tag" content="knowledgeGraph">
+<meta property="article:tag" content="paper">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lsx-sneakerprogrammer.github.io/archives/2021/06/">
+<link rel="canonical" href="https://lsx-sneakerprogrammer.github.io/2021/08/16/Representing-Text-for-Joint-Embedding-of-Text-and-Knowledge-Bases-%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -41,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 永缘空的博客</title>
+  <title>Representing Text for Joint Embedding of Text and Knowledge Bases 笔记 | 永缘空的博客</title>
   
 
 
@@ -164,56 +165,140 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2021/08/16/Representing-Text-for-Joint-Embedding-of-Text-and-Knowledge-Bases-%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="永缘空">
+      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永缘空的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Representing Text for Joint Embedding of Text and Knowledge Bases 笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-08-16 23:49:21 / 修改时间：23:50:23" itemprop="dateCreated datePublished" datetime="2021-08-16T23:49:21+08:00">2021-08-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Knowledge-Graph/" itemprop="url" rel="index"><span itemprop="name">Knowledge Graph</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 14 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/08/16/Representing-Text-for-Joint-Embedding-of-Text-and-Knowledge-Bases-%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/16/Representing-Text-for-Joint-Embedding-of-Text-and-Knowledge-Bases-%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>855</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <h1 id="Perface"><a href="#Perface" class="headerlink" title="Perface"></a>Perface</h1><p>This is the notes when I was reading <a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2017/05/emnlp15.pdf" target="_blank" rel="noopener">Representing Text for Joint Embedding of Text and Knowledge Bases</a> paper.</p>
+<h1 id="Introduction-Notes"><a href="#Introduction-Notes" class="headerlink" title="Introduction Notes"></a>Introduction Notes</h1><p>This paper was based on jointly learning continuous representations for knowledge base and textual relations by Riedel et al. [1]. The textual relations of two entities were extracted by the lexicalized dependency path.  The previous work made textual relation learn its continuous latent representation from the pattern of its co-occurrences in the knowledge graph.</p>
+<a id="more"></a>
+<p>The authors think that there are large common sub-structure (similar words and dependency paths) for synonymous textual relations. Therefore, they raised sharing parameters among related dependency paths. Their contribution is using a CNN to derive continuous representations for textual relations and this boosts the performance of link prediction for entity pairs have textual information.</p>
+<h1 id="Related-Work-Notes"><a href="#Related-Work-Notes" class="headerlink" title="Related Work Notes"></a>Related Work Notes</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>[1]: <a href="https://aclanthology.org/N13-1008v2.pdf" target="_blank" rel="noopener">Relation extraction with matrix factorization and universal schemas.</a></p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-06-20T01:05:11+08:00"
-              content="2021-06-20">
-          06-20
-        </time>
-      </div>
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/06/20/PRML-Kernel-PCA/" itemprop="url">
-            <span itemprop="name">PRML-Kernel PCA</span>
-          </a>
-      </div>
+      
+    </div>
 
-    </header>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/knowledgeGraph/" rel="tag"># knowledgeGraph</a>
+              <a href="/tags/paper/" rel="tag"># paper</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/11/Text-Augmented-Knowledge/" rel="prev" title="Text-Augmented-Knowledge">
+      <i class="fa fa-chevron-left"></i> Text-Augmented-Knowledge
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -260,6 +345,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Perface"><span class="nav-number">1.</span> <span class="nav-text">Perface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-Notes"><span class="nav-number">2.</span> <span class="nav-text">Introduction Notes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-Work-Notes"><span class="nav-number">3.</span> <span class="nav-text">Related Work Notes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -402,6 +488,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
