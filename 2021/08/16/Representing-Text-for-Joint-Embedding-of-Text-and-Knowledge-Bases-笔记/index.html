@@ -28,7 +28,7 @@
 <meta property="og:description" content="PerfaceThis is the notes when I was reading Representing Text for Joint Embedding of Text and Knowledge Bases paper. Introduction NotesThis paper was based on jointly learning continuous representatio">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-16T15:49:21.000Z">
-<meta property="article:modified_time" content="2021-08-16T15:50:23.700Z">
+<meta property="article:modified_time" content="2021-08-17T16:59:28.102Z">
 <meta property="article:author" content="永缘空">
 <meta property="article:tag" content="knowledgeGraph">
 <meta property="article:tag" content="paper">
@@ -194,10 +194,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-08-16 23:49:21 / 修改时间：23:50:23" itemprop="dateCreated datePublished" datetime="2021-08-16T23:49:21+08:00">2021-08-16</time>
+              <time title="创建时间：2021-08-16 23:49:21" itemprop="dateCreated datePublished" datetime="2021-08-16T23:49:21+08:00">2021-08-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-08-18 00:59:28" itemprop="dateModified" datetime="2021-08-18T00:59:28+08:00">2021-08-18</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -235,7 +241,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>855</span>
+              <span>2.7k</span>
             </span>
 
         </div>
@@ -251,7 +257,50 @@
 <h1 id="Introduction-Notes"><a href="#Introduction-Notes" class="headerlink" title="Introduction Notes"></a>Introduction Notes</h1><p>This paper was based on jointly learning continuous representations for knowledge base and textual relations by Riedel et al. [1]. The textual relations of two entities were extracted by the lexicalized dependency path.  The previous work made textual relation learn its continuous latent representation from the pattern of its co-occurrences in the knowledge graph.</p>
 <a id="more"></a>
 <p>The authors think that there are large common sub-structure (similar words and dependency paths) for synonymous textual relations. Therefore, they raised sharing parameters among related dependency paths. Their contribution is using a CNN to derive continuous representations for textual relations and this boosts the performance of link prediction for entity pairs have textual information.</p>
-<h1 id="Related-Work-Notes"><a href="#Related-Work-Notes" class="headerlink" title="Related Work Notes"></a>Related Work Notes</h1><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>[1]: <a href="https://aclanthology.org/N13-1008v2.pdf" target="_blank" rel="noopener">Relation extraction with matrix factorization and universal schemas.</a></p>
+<h1 id="Related-Work-Notes"><a href="#Related-Work-Notes" class="headerlink" title="Related Work Notes"></a>Related Work Notes</h1><p>The author introduce three types of related work for link prediction, using KB, using text and using both of them. Their work is built on the approach of Riedel et al <a href="#refer-anchor-1"><sup>1</sup></a> and the extension of the DISTMULT model <a href="#refer-anchor-2"><sup>2</sup></a> (a simple variant of a bilinear model) and jointly train the representations of KB and text relations. </p>
+<h1 id="Models-for-knowledge-base-completion-Notes"><a href="#Models-for-knowledge-base-completion-Notes" class="headerlink" title="Models for knowledge base completion Notes"></a>Models for knowledge base completion Notes</h1><p>$\textbf{Terminologies}$:</p>
+<ul>
+<li>RDF triples: $(e_s, r, e_o)$, where $e_s$ is subject entity, $e_o$ is object entity and $r$ is relation.</li>
+<li>Task: Predict relations between entities. Rank candidate entities for given queries like $(e_s, r, ?)$, $(?, r, e_o)$</li>
+</ul>
+<p>They followed previous work <a href="#refer-anchor-2"><sup>2</sup></a> to represent both textual and knowledge base relations.<br>$\textbf{Textual relations}$: Use lexicalized dependency paths, like for entities $\text{BARACK OBAMA}$ and $\text{UNITED STATES}$, the textual relation is </p>
+<script type="math/tex; mode=display">SUBJECT \overset{nsubj}{\longleftarrow} president \overset{prep}{\longrightarrow} of \overset{obj}{\longrightarrow} OBJECT</script><p>The model uses a score between $(0, 1)$ to rank the probabilty of the triples.</p>
+<h2 id="Basic-Models"><a href="#Basic-Models" class="headerlink" title="Basic Models"></a>Basic Models</h2><p>$\textbf{Model E and F}$: they were used for a combined KB+text graph <a href="#refer-anchor-1"><sup>1</sup></a>.</p>
+<p>$\textbf{Model F}$: </p>
+<ul>
+<li>K-dimention vector for both relation $r$ and entity pair $(e_s, e_o)$</li>
+<li>Scoring function is $f(e_s, r, e_o) = v(r)^Tv(e_s, e_o)$</li>
+<li><span style="border-bottom:2px dashed black;">Do not share parameters for different entity pairs having same entity.</span></li>
+</ul>
+<p>$\textbf{Model E}$: </p>
+<ul>
+<li>Two K dimention vector $r_s, r_o$ for relations $r$</li>
+<li>Each entity only has its own K-dimention vector (no vector for entity pair)</li>
+<li>Scoring function is $f(e_s, r, e_o) = v(r_s)^Tv(e_s) + v(r_o)^Tv(e_o)$</li>
+<li>For query $(e_s, r, ?)$, the ranking depends on $r$, not $e_s$</li>
+</ul>
+<p>$\textbf{Model DISTMULT}$: </p>
+<ul>
+<li>A special form of a bilinear model like RESCAL <a href="#refer-anchor-3"><sup>3</sup></a></li>
+<li>K dimention vector for each entity $e_i$ and each relation $r$</li>
+<li>Scoring function is $f(e_s, r, e_o) = v(r)^T(v(e_s) \circ v(e_o))$, where $\circ$ denotes the element-wise vector product</li>
+<li>The entity pairs sharing an entiry will also share parameters, and ranking result for $(e_s ,r, ?)$ will depend on the $e_s$  </li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><div id="refer-anchor-1"></div>
+
+<ul>
+<li>[1] <a href="https://aclanthology.org/N13-1008v2.pdf" target="_blank" rel="noopener">Relation extraction with matrix factorization and universal schemas.</a></li>
+</ul>
+<div id="refer-anchor-2"></div>
+
+<ul>
+<li>[2] <a href="https://arxiv.org/abs/1412.6575" target="_blank" rel="noopener">Embedding Entities and Relations for Learning and Inference in Knowledge Bases</a></li>
+</ul>
+<div id="refer-anchor-3"></div>
+
+<ul>
+<li>[3] <a href="https://icml.cc/2011/papers/438_icmlpaper.pdf" target="_blank" rel="noopener">A Three-Way Model for Collective Learning on Multi-Relational Data</a></li>
+</ul>
 
     </div>
 
@@ -345,7 +394,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Perface"><span class="nav-number">1.</span> <span class="nav-text">Perface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-Notes"><span class="nav-number">2.</span> <span class="nav-text">Introduction Notes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-Work-Notes"><span class="nav-number">3.</span> <span class="nav-text">Related Work Notes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Perface"><span class="nav-number">1.</span> <span class="nav-text">Perface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-Notes"><span class="nav-number">2.</span> <span class="nav-text">Introduction Notes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Related-Work-Notes"><span class="nav-number">3.</span> <span class="nav-text">Related Work Notes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Models-for-knowledge-base-completion-Notes"><span class="nav-number">4.</span> <span class="nav-text">Models for knowledge base completion Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Models"><span class="nav-number">4.1.</span> <span class="nav-text">Basic Models</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -411,7 +460,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">46k</span>
+    <span title="站点总字数">48k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
