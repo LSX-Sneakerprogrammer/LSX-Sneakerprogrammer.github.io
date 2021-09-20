@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">14</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">17</span></a>
 
   </li>
   </ul>
@@ -166,6 +166,337 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2021/09/20/RESCAL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="永缘空">
+      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永缘空的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/20/RESCAL/" class="post-title-link" itemprop="url">RESCAL</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-09-20 12:49:09 / 修改时间：12:50:21" itemprop="dateCreated datePublished" datetime="2021-09-20T12:49:09+08:00">2021-09-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Knowledge-Graph/" itemprop="url" rel="index"><span itemprop="name">Knowledge Graph</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/09/20/RESCAL/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/20/RESCAL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.7k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Perface"><a href="#Perface" class="headerlink" title="Perface"></a>Perface</h1><p>This is the notes when I was reading <a href="https://icml.cc/2011/papers/438_icmlpaper.pdf" target="_blank" rel="noopener">A Three-Way Model for Collective Learning on Multi-Relational Data</a> paper.</p>
+<h1 id="Introduction-Notes"><a href="#Introduction-Notes" class="headerlink" title="Introduction Notes"></a>Introduction Notes</h1><p>In this paper, the model learns relations mainly based on tensor factorization related to DEDICOM model.</p>
+<h1 id="Modelling-and-Notation-Notes"><a href="#Modelling-and-Notation-Notes" class="headerlink" title="Modelling and Notation Notes"></a>Modelling and Notation Notes</h1><p>The authors model the triples into a three-way tensor $\chi$, where two modes are concantenated entities and the third are relations.</p>
+<ul>
+<li>$\chi_{ijk} = 1$ indicates existing the relation $\text{(i-th entity, k-th predicate, j-th entity).}$</li>
+<li>$\chi_{ijk} = 0$ indicates non-existing and unknown relations.</li>
+</ul>
+<p>$\text{Some Notations}$</p>
+<ul>
+<li>$\chi_k$ is the k-th frontal slice of the tensor $\chi$.</li>
+<li>$X(n)$ denotes the unfolding of the tensor $chi$ in mode $n$</li>
+<li>$A \otimes B$ refers to the Kronecker product of the matrices A and B</li>
+<li>$vec(X)$ is the vectorization of the matrix $X$</li>
+<li>Data is given as a $n \times n \times m$ tensor $\chi$, where $n$ is the number of entities and $m$ the number of relations.</li></ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/20/RESCAL/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2021/09/20/Reading-The-Web-with-Learned-Syntactic-Semantic-Inference-Rules/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="永缘空">
+      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永缘空的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/20/Reading-The-Web-with-Learned-Syntactic-Semantic-Inference-Rules/" class="post-title-link" itemprop="url">Reading The Web with Learned Syntactic-Semantic Inference Rules</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-09-20 12:44:24 / 修改时间：12:47:58" itemprop="dateCreated datePublished" datetime="2021-09-20T12:44:24+08:00">2021-09-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Knowledge-Graph/" itemprop="url" rel="index"><span itemprop="name">Knowledge Graph</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/09/20/Reading-The-Web-with-Learned-Syntactic-Semantic-Inference-Rules/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/20/Reading-The-Web-with-Learned-Syntactic-Semantic-Inference-Rules/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.1k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Perface"><a href="#Perface" class="headerlink" title="Perface"></a>Perface</h1><p>This is the notes when I was reading <a href="https://aclanthology.org/D12-1093/" target="_blank" rel="noopener">Reading The Web with Learned Syntactic-Semantic Inference Rules</a> paper.</p>
+<h1 id="Terminology-and-Notation-Notes"><a href="#Terminology-and-Notation-Notes" class="headerlink" title="Terminology and Notation Notes"></a>Terminology and Notation Notes</h1><ul>
+<li>$C$ is a set of entities, $R$ is a set of relations, $T$ is a set of triples, $T \subseteq C \times R \times C$. </li>
+<li>$(c, r, c^{‘})$ is the triple. Each triple represents an instance $r(c, c^{‘})$ of the relation $r \in R$</li>
+<li>$r^{-1}$, the inverse relation $r(c, c^{‘}) \Longleftrightarrow r^{-1}(c^{‘}, c)$, e.g. $Parent^{-1} = Children$</li>
+<li>$\pi = <r_1, . , r_m>$ is the path type. For example,: </r_1,></li>
+<li>“the persons who were born in the same town as the<br>query person” $\rightarrow$ $\pi_{1} : <BornIn, bornin^{-1}>$ </BornIn,></li>
+<li>“the nationalities of persons who were born in the same town as the query person” $\rightarrow$ $\pi_{2} : <BornIn, bornin^{-1}, nationality>$ </BornIn,></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/20/Reading-The-Web-with-Learned-Syntactic-Semantic-Inference-Rules/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2021/09/20/Relation-Extraction-with-Matrix-Factorization-and-Universal-Schemas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="永缘空">
+      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永缘空的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/20/Relation-Extraction-with-Matrix-Factorization-and-Universal-Schemas/" class="post-title-link" itemprop="url">Relation Extraction with Matrix Factorization and Universal Schemas</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-09-20 12:42:23 / 修改时间：12:48:29" itemprop="dateCreated datePublished" datetime="2021-09-20T12:42:23+08:00">2021-09-20</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Knowledge-Graph/" itemprop="url" rel="index"><span itemprop="name">Knowledge Graph</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/09/20/Relation-Extraction-with-Matrix-Factorization-and-Universal-Schemas/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/20/Relation-Extraction-with-Matrix-Factorization-and-Universal-Schemas/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.1k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Perface"><a href="#Perface" class="headerlink" title="Perface"></a>Perface</h1><p>This is the notes when I was reading <a href="https://aclanthology.org/N13-1008v2.pdf" target="_blank" rel="noopener">Relation Extraction with Matrix Factorization and Universal Schemas</a> paper.</p>
+<h1 id="Introduction-Notes"><a href="#Introduction-Notes" class="headerlink" title="Introduction Notes"></a>Introduction Notes</h1><p>semantic equivalence？<br>surface pattern relations？</p>
+<h1 id="Model-Notes"><a href="#Model-Notes" class="headerlink" title="Model Notes"></a>Model Notes</h1><ul>
+<li>Inspired from collaborative filtering</li>
+<li>Matrix Factorization</li>
+<li>$R$ is the set of relations</li>
+<li>$T$ is the set of input tuples (entity pairs)</li>
+</ul>
+<p>Predict the probability of $<r, t>$. $r \in R, t \in T$</r,></p>
+<p>Using a natural parameter $\theta_{r, t}$ and the logistic function</p>
+<script type="math/tex; mode=display">p (y_{r,t} = 1|\theta_{r, t}) := σ (\theta_{r, t}) = \frac{1}{1 + exp (−\theta_{r, t})}</script>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/09/20/Relation-Extraction-with-Matrix-Factorization-and-Universal-Schemas/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -201,7 +532,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-08-18 00:59:28" itemprop="dateModified" datetime="2021-08-18T00:59:28+08:00">2021-08-18</time>
+                <time title="修改时间：2021-08-19 01:14:32" itemprop="dateModified" datetime="2021-08-19T01:14:32+08:00">2021-08-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,7 +564,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.7k</span>
+              <span>3.7k</span>
             </span>
 
         </div>
@@ -929,347 +1260,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2021/06/20/PRML-Kernel-PCA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="永缘空">
-      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="永缘空的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/06/20/PRML-Kernel-PCA/" class="post-title-link" itemprop="url">PRML-Kernel PCA</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-06-20 01:05:11" itemprop="dateCreated datePublished" datetime="2021-06-20T01:05:11+08:00">2021-06-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-20 20:00:12" itemprop="dateModified" datetime="2021-07-20T20:00:12+08:00">2021-07-20</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ml/" itemprop="url" rel="index"><span itemprop="name">ml</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/06/20/PRML-Kernel-PCA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/20/PRML-Kernel-PCA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>6.9k</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>好久没写博客了，之前一直在做RelexNet的项目，感觉上是做出了一些还不错的东西，也不知道能不能发一篇论文。这个学期选了anu Statistic Machine Learning这门以前的神课，当然感觉现在好像没有以前那种难度的感觉了，但结合这门课加上PRML这本书的学习，也从数学的角度更好的理解了一些机器学习的原理，不得不说Bishop是真的很爱用贝叶斯来解释一切。</p>
-<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>It is a long time for me not writing the Blog. Recently, I just finished my last honours year of bachelor degree and the thesis. I am not sure if the thesis could be published to a conference, but I will trying to do this. In the last semester, I chose the course COMP4670 (Statistical Machine Learning). Although it may be not as difficult as before, I could also learn much knowledge from this course and PRML (Pattern Recognition and Machine Learning) book. From a mathematical point of view, I have a better understanding of some machine learning principles. I have to say that Bishop really likes to use Bayes to explain everything (lol). I would like to update about Kernel method first, the previous chapters can also be updated slowly.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/06/20/PRML-Kernel-PCA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="永缘空">
-      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="永缘空的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/" class="post-title-link" itemprop="url">COMP4650(Document Analysis) Ranked Retrieval</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-08-04 11:48:51" itemprop="dateCreated datePublished" datetime="2020-08-04T11:48:51+08:00">2020-08-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-05 16:33:32" itemprop="dateModified" datetime="2020-08-05T16:33:32+08:00">2020-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nlp/" itemprop="url" rel="index"><span itemprop="name">nlp</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>5.2k</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Introduction-to-Boolean-Retrieval"><a href="#Introduction-to-Boolean-Retrieval" class="headerlink" title="Introduction to Boolean Retrieval"></a>Introduction to Boolean Retrieval</h1><h2 id="Bag-of-Words-BOW"><a href="#Bag-of-Words-BOW" class="headerlink" title="Bag-of-Words (BOW)"></a>Bag-of-Words (BOW)</h2><h3 id="Assumption"><a href="#Assumption" class="headerlink" title="Assumption"></a>Assumption</h3><p>A document is a collection of words<br>e.g.   </p>
-<ul>
-<li>Doc1: Mary married John  </li>
-<li>Doc2: John married Mary   </li>
-<li>These two documents are the same under BoW assumption  </li>
-</ul>
-<p>We will use the BoW assumption throughout IR part(not care about ordering). NLP part will cover other approaches that care about ordering.</p>
-<h2 id="Field-Zone-in-Document"><a href="#Field-Zone-in-Document" class="headerlink" title="Field (Zone) in Document"></a>Field (Zone) in Document</h2><ul>
-<li>Document is a semi-structured data<br>e.g. Title, Author, Published, Date, Body  </li>
-<li>Someone may want to limit search scope within a certain field</li></ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/header.jpg">
-      <meta itemprop="name" content="永缘空">
-      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="永缘空的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/" class="post-title-link" itemprop="url">COMP4650(Document Analysis) Information Retrieval</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-30 16:30:12" itemprop="dateCreated datePublished" datetime="2020-07-30T16:30:12+08:00">2020-07-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-05 16:33:34" itemprop="dateModified" datetime="2020-08-05T16:33:34+08:00">2020-08-05</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/nlp/" itemprop="url" rel="index"><span itemprop="name">nlp</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>4.1k</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Introduction-to-Information-Retrieval"><a href="#Introduction-to-Information-Retrieval" class="headerlink" title="Introduction to Information Retrieval"></a>Introduction to Information Retrieval</h1><h2 id="What-is-information-retrieval"><a href="#What-is-information-retrieval" class="headerlink" title="What is information retrieval"></a>What is information retrieval</h2><h3 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h3><ul>
-<li><strong>Google Defination</strong><br>Information retrieval is the science of searching for information in a document, searching for documents themselves, and also searching for the metadata that describes data, and for databases of texts, images or sounds.  </li>
-</ul>
-<ul>
-<li><strong>Textbook Defination</strong><br><a href="https://nlp.stanford.edu/IR-book/pdf/01bool.pdf" target="_blank" rel="noopener">Textbook</a><br>Information Retrieval (IR) is finding material (usually documents) of an unstructured nature (usually text) that satisfies an information need from within large collections (usually stored on computers).  </li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <div>
-      
-    </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1341,7 +1331,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1391,7 +1381,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">48k</span>
+    <span title="站点总字数">57k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>

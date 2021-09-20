@@ -20,23 +20,21 @@
     var CONFIG = {"hostname":"lsx-sneakerprogrammer.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="第一篇博客-Hexo博客的建立与部署 经历过刺激的考试周， 假期试着学一下nlp再学习一下《统计学习方法》，为以后COMP4650和COMP4670的学习铺垫一下 首先，感谢一下我的好兄弟兼好儿子MrSun，按照他的博客先搭起了框架，这里先也写一下博客的搭建过程博客的搭建过程 首先下载node.js以及git(这两个都是hexo博客框架所需要的)node.jsgit 安装Hexo首先，node.j">
+  <meta name="description" content="PerfaceThis is the notes when I was reading Relation Extraction with Matrix Factorization and Universal Schemas paper. Introduction Notessemantic equivalence？surface pattern relations？ Model Notes Ins">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇博客 Hexo搭建">
-<meta property="og:url" content="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/index.html">
+<meta property="og:title" content="Relation Extraction with Matrix Factorization and Universal Schemas">
+<meta property="og:url" content="https://lsx-sneakerprogrammer.github.io/2021/09/20/Relation-Extraction-with-Matrix-Factorization-and-Universal-Schemas/index.html">
 <meta property="og:site_name" content="永缘空的博客">
-<meta property="og:description" content="第一篇博客-Hexo博客的建立与部署 经历过刺激的考试周， 假期试着学一下nlp再学习一下《统计学习方法》，为以后COMP4650和COMP4670的学习铺垫一下 首先，感谢一下我的好兄弟兼好儿子MrSun，按照他的博客先搭起了框架，这里先也写一下博客的搭建过程博客的搭建过程 首先下载node.js以及git(这两个都是hexo博客框架所需要的)node.jsgit 安装Hexo首先，node.j">
+<meta property="og:description" content="PerfaceThis is the notes when I was reading Relation Extraction with Matrix Factorization and Universal Schemas paper. Introduction Notessemantic equivalence？surface pattern relations？ Model Notes Ins">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/1.png">
-<meta property="og:image" content="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/1.png">
-<meta property="article:published_time" content="2020-06-30T12:06:26.000Z">
-<meta property="article:modified_time" content="2020-07-02T13:59:25.259Z">
+<meta property="article:published_time" content="2021-09-20T04:42:23.000Z">
+<meta property="article:modified_time" content="2021-09-20T04:48:29.833Z">
 <meta property="article:author" content="永缘空">
-<meta property="article:tag" content="博客搭建">
+<meta property="article:tag" content="knowledgeGraph">
+<meta property="article:tag" content="paper">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/1.png">
 
-<link rel="canonical" href="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/">
+<link rel="canonical" href="https://lsx-sneakerprogrammer.github.io/2021/09/20/Relation-Extraction-with-Matrix-Factorization-and-Universal-Schemas/">
 
 
 <script id="page-configurations">
@@ -49,7 +47,7 @@
   };
 </script>
 
-  <title>第一篇博客 Hexo搭建 | 永缘空的博客</title>
+  <title>Relation Extraction with Matrix Factorization and Universal Schemas | 永缘空的博客</title>
   
 
 
@@ -174,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2021/09/20/Relation-Extraction-with-Matrix-Factorization-and-Universal-Schemas/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/header.jpg">
@@ -187,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第一篇博客 Hexo搭建
+          Relation Extraction with Matrix Factorization and Universal Schemas
         </h1>
 
         <div class="post-meta">
@@ -196,23 +194,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-06-30 20:06:26" itemprop="dateCreated datePublished" datetime="2020-06-30T20:06:26+08:00">2020-06-30</time>
+              <time title="创建时间：2021-09-20 12:42:23 / 修改时间：12:48:29" itemprop="dateCreated datePublished" datetime="2021-09-20T12:42:23+08:00">2021-09-20</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-02 21:59:25" itemprop="dateModified" datetime="2020-07-02T21:59:25+08:00">2020-07-02</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a>
+                  <a href="/categories/Knowledge-Graph/" itemprop="url" rel="index"><span itemprop="name">Knowledge Graph</span></a>
                 </span>
             </span>
 
@@ -232,8 +224,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/09/20/Relation-Extraction-with-Matrix-Factorization-and-Universal-Schemas/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/20/Relation-Extraction-with-Matrix-Factorization-and-Universal-Schemas/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -243,7 +235,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>2.1k</span>
             </span>
 
         </div>
@@ -255,36 +247,62 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="第一篇博客-Hexo博客的建立与部署"><a href="#第一篇博客-Hexo博客的建立与部署" class="headerlink" title="第一篇博客-Hexo博客的建立与部署"></a>第一篇博客-Hexo博客的建立与部署</h1><ol>
-<li>经历过刺激的考试周， 假期试着学一下nlp再学习一下《统计学习方法》，为以后COMP4650和COMP4670的学习铺垫一下</li>
-<li>首先，感谢一下我的好兄弟兼好儿子<a href="https://mrsuncodes.github.io/" target="_blank" rel="noopener">MrSun</a>，按照他的博客先搭起了框架，这里先也写一下博客的搭建过程<h2 id="博客的搭建过程"><a href="#博客的搭建过程" class="headerlink" title="博客的搭建过程"></a>博客的搭建过程</h2></li>
-<li>首先下载node.js以及git(这两个都是hexo博客框架所需要的)<br><a href="https://nodejs.org/en/" target="_blank" rel="noopener">node.js</a><br><a href="https://git-scm.com/downloads/" target="_blank" rel="noopener">git</a></li>
-<li><p>安装Hexo<br>首先，node.js下载并安装后是默认安装npm(项目管理工具)  </p>
-<p>因为npm是使用国外镜像，所以我们修改并使用淘宝的镜像，这样之后的命令执行速度会变快， 其下载命令是:</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-<p>测试的命令分别为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. node -v</span><br><span class="line">2. npm -v</span><br><span class="line">3. cnpm</span><br></pre></td></tr></table></figure>
-<p>完成之后安装Hexo：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>检验Hexo是否安装成功：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>创建一个目录：(我的是放在了D:/MyBlog)<br>使用命令:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<p>这步是将框架初始化的内容添加到你刚才创建的文件夹中</p>
-</li>
-<li>运行测试：<br>常使用的四个命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #用来清理缓存文件</span><br><span class="line">hexo g     #生成文件</span><br><span class="line">hexo s     #运行本地服务器</span><br><span class="line">hexo d     #上传到服务器</span><br></pre></td></tr></table></figure>
-运行时，先使用命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-打开浏览器的<strong>localhost:4000</strong>，即可发现本地登录成功。<br>我是部署到github上，不需要关心服务器租赁费以及域名等等问题，<br>首先在github上面创建一个新的仓库，名字就叫做[github用户名].github.io,然后在自己所创建的目录中[我的是D:/MyBlog]打开_config.yml文件，将其中的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br></pre></td></tr></table></figure>
-字段填补完整为：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:&#x2F;&#x2F;github.com&#x2F;LSX-Sneakerprogrammer&#x2F;LSX-Sneakerprogrammer.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-repo中的地址及你在github上面创建的仓库地址。<br>最后，只需执行一条命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-即可将本地的所有文件push到github仓库中，此时访问<br><a href="https://lsx-sneakerprogrammer.github.io/">MyBlog</a> 即你的用户名.github.io即可(可能需要多刷新几下)  </li>
-</ol>
-   <!-- ![1](第一篇博客-Hexo搭建/1.png) -->
-   <!-- <img src="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/1.png" class="" title="This is an example image"> -->
-   <img src="/2020/06/30/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2-Hexo%E6%90%AD%E5%BB%BA/1.png" class title="[第一篇博客-Hexo搭建]">
-<p>   大功告成！个人博客已经搞起来了！剩下的就是编写博客以及修改主题等样式了，具体可看我的下一篇博客。</p>
+        <h1 id="Perface"><a href="#Perface" class="headerlink" title="Perface"></a>Perface</h1><p>This is the notes when I was reading <a href="https://aclanthology.org/N13-1008v2.pdf" target="_blank" rel="noopener">Relation Extraction with Matrix Factorization and Universal Schemas</a> paper.</p>
+<h1 id="Introduction-Notes"><a href="#Introduction-Notes" class="headerlink" title="Introduction Notes"></a>Introduction Notes</h1><p>semantic equivalence？<br>surface pattern relations？</p>
+<h1 id="Model-Notes"><a href="#Model-Notes" class="headerlink" title="Model Notes"></a>Model Notes</h1><ul>
+<li>Inspired from collaborative filtering</li>
+<li>Matrix Factorization</li>
+<li>$R$ is the set of relations</li>
+<li>$T$ is the set of input tuples (entity pairs)</li>
+</ul>
+<p>Predict the probability of $<r, t>$. $r \in R, t \in T$</r,></p>
+<p>Using a natural parameter $\theta_{r, t}$ and the logistic function</p>
+<script type="math/tex; mode=display">p (y_{r,t} = 1|\theta_{r, t}) := σ (\theta_{r, t}) = \frac{1}{1 + exp (−\theta_{r, t})}</script><a id="more"></a>
+<h2 id="Latent-Feature-Model"><a href="#Latent-Feature-Model" class="headerlink" title="Latent Feature Model"></a>Latent Feature Model</h2><p>$\textbf{Model F}$</p>
+<ul>
+<li>Measure compatibility between relation $r$ and tuple $t$ as dot product of two latent feature representations of size $K^F$</li>
+<li>$a_r$ for relation r, and $v_t$ for tuple t</li>
+</ul>
+<script type="math/tex; mode=display">\theta^F_{r,t} := \sum^{K^F}_{k} a_{r, k} v_{t, k}</script><h2 id="Neighborhood-Model"><a href="#Neighborhood-Model" class="headerlink" title="Neighborhood Model"></a>Neighborhood Model</h2><p>$\textbf{Model N}$</p>
+<ul>
+<li>Interpolate the confidence for a given tuple<br>and relation based on the trueness of other similar<br>relations for the same tuple</li>
+<li>weights $w_{r, r^{‘}}$, correspond to a<br>directed association strength between relations $r$ and<br>$r^{‘}$</li>
+<li>$O$ is the set of real $<r, t>$ tuples</r,></li>
+</ul>
+<script type="math/tex; mode=display">\theta^N_{r,t} := \sum_{(r^{'}, t) \in O \backslash \{(r,t)\} } w_{r, r^{'}}</script><ul>
+<li>This model cannot harness any synergies between textual and pre-existing DB relations.</li>
+</ul>
+<h2 id="Entity-Model"><a href="#Entity-Model" class="headerlink" title="Entity Model"></a>Entity Model</h2><p>$\textbf{Model E}$</p>
+<ul>
+<li>a feature vector $d_i$ for relation $r$, binary relations have feature representations $d_1$ for argument 1, and $d_2$ for argument 2</li>
+<li>$t_e$ is the vector of dimension $K^E$ for entity $e$<script type="math/tex; mode=display">\theta^E_{r,t} := \sum_{i = 1}^{arity(r)}\sum_{k}^{K^E} d_{i, k}t_{t_i,k}</script></li>
+</ul>
+<h2 id="Combined-Model"><a href="#Combined-Model" class="headerlink" title="Combined Model"></a>Combined Model</h2><script type="math/tex; mode=display">\theta^{NEF}_{r,t} = \theta^N_{r,t} + \theta^E_{r,t} + \theta^F_{r,t}</script><h2 id="Parameter-Estimation"><a href="#Parameter-Estimation" class="headerlink" title="Parameter Estimation"></a>Parameter Estimation</h2><ul>
+<li>Models are parametrized through weights and latent component vectors. </li>
+<li>Because of inspiring by collaborative filtering, the score is used to rank not predict (data is positive-only), it needs to pick a threshold.</li>
+</ul>
+<h3 id="Objective"><a href="#Objective" class="headerlink" title="Objective"></a>Objective</h3><p>Using Bayesian Personalized Ranking (BPR)</p>
+<ul>
+<li>For each relation r and each observed fact $f^{+}:= <r, t_i> \in O$</r,></li>
+<li>all tuples $t_{−}$ such that $f^{−} := <r, t_i> \notin O$</r,></li>
+<li>For each pair of facts $f^{+}$ and f^{−} we want $p(f^{+})$ &gt; $p(f^{-})$ and hence $\theta<em>{f^{+}}$ &gt; $\theta</em>{f^{-}}$</li>
+<li>In BPR this is achieved by maximizing a sum terms of the form $Obj<em>{f^{+}, f^{-}} = log (\sigma(theta</em>{f^{+}} - theta_{f^{-}}))$</li>
+</ul>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><div id="refer-anchor-1"></div>
+
+<ul>
+<li>[1] <a href="https://aclanthology.org/N13-1008v2.pdf" target="_blank" rel="noopener">Relation extraction with matrix factorization and universal schemas.</a></li>
+</ul>
+<div id="refer-anchor-2"></div>
+
+<ul>
+<li>[2] <a href="https://arxiv.org/abs/1412.6575" target="_blank" rel="noopener">Embedding Entities and Relations for Learning and Inference in Knowledge Bases</a></li>
+</ul>
+<div id="refer-anchor-3"></div>
+
+<ul>
+<li>[3] <a href="https://icml.cc/2011/papers/438_icmlpaper.pdf" target="_blank" rel="noopener">A Three-Way Model for Collective Learning on Multi-Relational Data</a></li>
+</ul>
 
     </div>
 
@@ -305,7 +323,8 @@ repo中的地址及你在github上面创建的仓库地址。<br>最后，只需
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"># 博客搭建</a>
+              <a href="/tags/knowledgeGraph/" rel="tag"># knowledgeGraph</a>
+              <a href="/tags/paper/" rel="tag"># paper</a>
           </div>
 
         
@@ -313,10 +332,13 @@ repo中的地址及你在github上面创建的仓库地址。<br>最后，只需
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/06/30/%E6%80%8E%E6%A0%B7%E5%86%99%E5%8D%9A%E5%AE%A2/" rel="next" title="怎样写博客">
-      怎样写博客 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/08/16/Representing-Text-for-Joint-Embedding-of-Text-and-Knowledge-Bases-%E7%AC%94%E8%AE%B0/" rel="prev" title="Representing Text for Joint Embedding of Text and Knowledge Bases 笔记">
+      <i class="fa fa-chevron-left"></i> Representing Text for Joint Embedding of Text and Knowledge Bases 笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/09/20/Reading-The-Web-with-Learned-Syntactic-Semantic-Inference-Rules/" rel="next" title="Reading The Web with Learned Syntactic-Semantic Inference Rules">
+      Reading The Web with Learned Syntactic-Semantic Inference Rules <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -377,7 +399,7 @@ repo中的地址及你在github上面创建的仓库地址。<br>最后，只需
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一篇博客-Hexo博客的建立与部署"><span class="nav-number">1.</span> <span class="nav-text">第一篇博客-Hexo博客的建立与部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#博客的搭建过程"><span class="nav-number">1.1.</span> <span class="nav-text">博客的搭建过程</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Perface"><span class="nav-number">1.</span> <span class="nav-text">Perface</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction-Notes"><span class="nav-number">2.</span> <span class="nav-text">Introduction Notes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-Notes"><span class="nav-number">3.</span> <span class="nav-text">Model Notes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Latent-Feature-Model"><span class="nav-number">3.1.</span> <span class="nav-text">Latent Feature Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Neighborhood-Model"><span class="nav-number">3.2.</span> <span class="nav-text">Neighborhood Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Entity-Model"><span class="nav-number">3.3.</span> <span class="nav-text">Entity Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Combined-Model"><span class="nav-number">3.4.</span> <span class="nav-text">Combined Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Parameter-Estimation"><span class="nav-number">3.5.</span> <span class="nav-text">Parameter Estimation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Objective"><span class="nav-number">3.5.1.</span> <span class="nav-text">Objective</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -520,6 +542,59 @@ repo中的地址及你在github上面创建的仓库地址。<br>最后，只需
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

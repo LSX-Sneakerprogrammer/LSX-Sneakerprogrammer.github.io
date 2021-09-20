@@ -140,7 +140,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">14</span></a>
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档<span class="badge">17</span></a>
 
   </li>
   </ul>
@@ -166,6 +166,347 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2021/06/20/PRML-Kernel-PCA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="永缘空">
+      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永缘空的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/20/PRML-Kernel-PCA/" class="post-title-link" itemprop="url">PRML-Kernel PCA</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-06-20 01:05:11" itemprop="dateCreated datePublished" datetime="2021-06-20T01:05:11+08:00">2021-06-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-20 20:00:12" itemprop="dateModified" datetime="2021-07-20T20:00:12+08:00">2021-07-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ml/" itemprop="url" rel="index"><span itemprop="name">ml</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/06/20/PRML-Kernel-PCA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/20/PRML-Kernel-PCA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.9k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>好久没写博客了，之前一直在做RelexNet的项目，感觉上是做出了一些还不错的东西，也不知道能不能发一篇论文。这个学期选了anu Statistic Machine Learning这门以前的神课，当然感觉现在好像没有以前那种难度的感觉了，但结合这门课加上PRML这本书的学习，也从数学的角度更好的理解了一些机器学习的原理，不得不说Bishop是真的很爱用贝叶斯来解释一切。</p>
+<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>It is a long time for me not writing the Blog. Recently, I just finished my last honours year of bachelor degree and the thesis. I am not sure if the thesis could be published to a conference, but I will trying to do this. In the last semester, I chose the course COMP4670 (Statistical Machine Learning). Although it may be not as difficult as before, I could also learn much knowledge from this course and PRML (Pattern Recognition and Machine Learning) book. From a mathematical point of view, I have a better understanding of some machine learning principles. I have to say that Bishop really likes to use Bayes to explain everything (lol). I would like to update about Kernel method first, the previous chapters can also be updated slowly.</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/20/PRML-Kernel-PCA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="永缘空">
+      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永缘空的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/" class="post-title-link" itemprop="url">COMP4650(Document Analysis) Ranked Retrieval</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-04 11:48:51" itemprop="dateCreated datePublished" datetime="2020-08-04T11:48:51+08:00">2020-08-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-05 16:33:32" itemprop="dateModified" datetime="2020-08-05T16:33:32+08:00">2020-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nlp/" itemprop="url" rel="index"><span itemprop="name">nlp</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.2k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Introduction-to-Boolean-Retrieval"><a href="#Introduction-to-Boolean-Retrieval" class="headerlink" title="Introduction to Boolean Retrieval"></a>Introduction to Boolean Retrieval</h1><h2 id="Bag-of-Words-BOW"><a href="#Bag-of-Words-BOW" class="headerlink" title="Bag-of-Words (BOW)"></a>Bag-of-Words (BOW)</h2><h3 id="Assumption"><a href="#Assumption" class="headerlink" title="Assumption"></a>Assumption</h3><p>A document is a collection of words<br>e.g.   </p>
+<ul>
+<li>Doc1: Mary married John  </li>
+<li>Doc2: John married Mary   </li>
+<li>These two documents are the same under BoW assumption  </li>
+</ul>
+<p>We will use the BoW assumption throughout IR part(not care about ordering). NLP part will cover other approaches that care about ordering.</p>
+<h2 id="Field-Zone-in-Document"><a href="#Field-Zone-in-Document" class="headerlink" title="Field (Zone) in Document"></a>Field (Zone) in Document</h2><ul>
+<li>Document is a semi-structured data<br>e.g. Title, Author, Published, Date, Body  </li>
+<li>Someone may want to limit search scope within a certain field</li></ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/04/COMP4650-Document-Analysis-Ranked-Retrieval/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lsx-sneakerprogrammer.github.io/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/header.jpg">
+      <meta itemprop="name" content="永缘空">
+      <meta itemprop="description" content="山东大学17级计算机科学与技术，澳大利亚国立大学Bachelor of Advanced Computing(Honors), 澳大利亚国立大学Master of Machine Learning and Computer Vision主要学习NLP, Machine Learning等机器学习领域，此为个人博客。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="永缘空的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/" class="post-title-link" itemprop="url">COMP4650(Document Analysis) Information Retrieval</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-30 16:30:12" itemprop="dateCreated datePublished" datetime="2020-07-30T16:30:12+08:00">2020-07-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-05 16:33:34" itemprop="dateModified" datetime="2020-08-05T16:33:34+08:00">2020-08-05</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/nlp/" itemprop="url" rel="index"><span itemprop="name">nlp</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/course/" itemprop="url" rel="index"><span itemprop="name">course</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.1k</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Introduction-to-Information-Retrieval"><a href="#Introduction-to-Information-Retrieval" class="headerlink" title="Introduction to Information Retrieval"></a>Introduction to Information Retrieval</h1><h2 id="What-is-information-retrieval"><a href="#What-is-information-retrieval" class="headerlink" title="What is information retrieval"></a>What is information retrieval</h2><h3 id="Concept"><a href="#Concept" class="headerlink" title="Concept"></a>Concept</h3><ul>
+<li><strong>Google Defination</strong><br>Information retrieval is the science of searching for information in a document, searching for documents themselves, and also searching for the metadata that describes data, and for databases of texts, images or sounds.  </li>
+</ul>
+<ul>
+<li><strong>Textbook Defination</strong><br><a href="https://nlp.stanford.edu/IR-book/pdf/01bool.pdf" target="_blank" rel="noopener">Textbook</a><br>Information Retrieval (IR) is finding material (usually documents) of an unstructured nature (usually text) that satisfies an information need from within large collections (usually stored on computers).  </li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/30/COMP4650-Document-Analysis-Information-Retrieval/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+    </div>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -667,7 +1008,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -717,7 +1058,7 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">48k</span>
+    <span title="站点总字数">57k</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
